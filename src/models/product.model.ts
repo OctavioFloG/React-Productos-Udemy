@@ -6,7 +6,7 @@ import { Table, Column, Model, DataType, Default } from 'sequelize-typescript'
 
 class Producto extends Model {
     @Column({
-        type: DataType.STRING(100)
+        type: DataType.FLOAT
     })
     declare name: string
     @Column({

@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import Product from '../models/product.model'
 
 export const getProductById = async (req: Request, res: Response) => {
-   const { id } = req.params
+    const { id } = req.params
     const product = await Product.findByPk(id)
     if (!product) {
         res.status(404).json({
@@ -20,12 +20,12 @@ export const getProduct = async (req: Request, res: Response) => {
                 ['price', 'DESC']
             ]
         })
-        res.json({ data: products })
+    res.json({ data: products })
 }
 
 export const createProduct = async (req: Request, res: Response) => {
     const product = await Product.create(req.body)
-        res.json(201).json({data: product})
+    res.status(201).json({ data: product })
 }
 
 export const updateProduct = async (req: Request, res: Response) => {
@@ -75,5 +75,5 @@ export const deleteProduct = async (req: Request, res: Response) => {
         return
     }
     await product.destroy()
-    res.json({data:'Producto eliminado'})
+    res.json({ data: 'Producto eliminado' })
 }

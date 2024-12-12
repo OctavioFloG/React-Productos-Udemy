@@ -1,7 +1,7 @@
 import request from 'supertest'
 import server from '../../server'
 
-describe('POST /api/productss', () => {
+describe('POST /api/products', () => {
     it('should display a validation errors', async () => {
         const response = await request(server)
             .post('/api/products')
